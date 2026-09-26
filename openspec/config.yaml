@@ -1,0 +1,40 @@
+schema: spec-driven
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+context: |
+  Unicorn Quest is a 2D jump'n'run for children, built with Godot 4.x (GDScript).
+  Target platforms: tablets (primary), desktop. Input: touch and mouse only (no keyboard required),
+  on-screen buttons/joystick for movement/jump, dedicated button for mount/dismount.
+  Player character: a girl who can ride a unicorn.
+    - On foot: smaller hitbox, can enter narrow caves/tunnels, normal jump height, no magic.
+    - Mounted on unicorn: bigger hitbox, higher jump, can cast rainbow bridges to cross gaps/obstacles.
+  Unicorn magic: a resource (0-100%) consumed per spell cast (rainbow bridge is the first spell).
+  Magic can only be refilled by eating food items, which mostly spawn inside caves/tunnels
+  (reachable only on foot), creating an explore-on-foot / traverse-mounted gameplay loop.
+  Scenes/scripts organized under res://scenes and res://scripts. Keep code kid-friendly readable,
+  favor simple state machines over complex frameworks, and keep controls large/forgiving for
+  young players on touchscreens.
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always include a "Non-goals" section
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
