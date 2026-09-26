@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/FoodPickup.tscn" id="2_food"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/TouchControls.tscn" id="4_touch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor_a"]
+size = Vector2(600, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(200, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor_b"]
+size = Vector2(600, 40)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sky" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.65, 0.85, 1.0, 1)
+
+[node name="FloorA" type="StaticBody2D" parent="."]
+position = Vector2(300, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorA"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_floor_a")
+
+[node name="Visual" type="ColorRect" parent="FloorA"]
+offset_left = -300.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.3, 0.7, 0.35, 1)
+
+[node name="CaveCeiling" type="StaticBody2D" parent="."]
+position = Vector2(400, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveCeiling"]
+position = Vector2(0, -150)
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Visual" type="ColorRect" parent="CaveCeiling"]
+offset_left = -100.0
+offset_top = -300.0
+offset_right = 100.0
+offset_bottom = 0.0
+mouse_filter = 2
+color = Color(0.45, 0.4, 0.38, 1)
+
+[node name="FloorB" type="StaticBody2D" parent="."]
+position = Vector2(1100, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorB"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_floor_b")
+
+[node name="Visual" type="ColorRect" parent="FloorB"]
+offset_left = -300.0
+offset_top = 0.0
+offset_right = 300.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.3, 0.7, 0.35, 1)
+
+[node name="CaveFood" parent="." instance=ExtResource("2_food")]
+position = Vector2(400, 388)
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(60, 400)
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="TouchControls" parent="." instance=ExtResource("4_touch")]
