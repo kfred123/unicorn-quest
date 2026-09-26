@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/touch_controls.gd" id="1_controls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_move"]
+size = Vector2(120, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_action"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jump"]
+radius = 70.0
+
+[node name="TouchControls" type="CanvasLayer"]
+script = ExtResource("1_controls")
+
+[node name="Controls" type="Node2D" parent="."]
+
+[node name="MoveLeftButton" type="TouchScreenButton" parent="Controls"]
+position = Vector2(100, 700)
+shape = SubResource("RectangleShape2D_move")
+shape_centered = true
+shape_visible = true
+
+[node name="Label" type="Label" parent="Controls/MoveLeftButton"]
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "◀"
+
+[node name="MoveRightButton" type="TouchScreenButton" parent="Controls"]
+position = Vector2(250, 700)
+shape = SubResource("RectangleShape2D_move")
+shape_centered = true
+shape_visible = true
+
+[node name="Label" type="Label" parent="Controls/MoveRightButton"]
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "▶"
+
+[node name="JumpButton" type="TouchScreenButton" parent="Controls"]
+position = Vector2(1180, 690)
+shape = SubResource("CircleShape2D_jump")
+shape_centered = true
+shape_visible = true
+
+[node name="Label" type="Label" parent="Controls/JumpButton"]
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 50.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "SPRUNG"
+
+[node name="MountButton" type="TouchScreenButton" parent="Controls"]
+position = Vector2(1050, 560)
+shape = SubResource("CircleShape2D_action")
+shape_centered = true
+shape_visible = true
+
+[node name="Label" type="Label" parent="Controls/MountButton"]
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 50.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "REITEN"
+
+[node name="CastButton" type="TouchScreenButton" parent="Controls"]
+position = Vector2(1050, 750)
+shape = SubResource("CircleShape2D_action")
+shape_centered = true
+shape_visible = true
+
+[node name="Label" type="Label" parent="Controls/CastButton"]
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 50.0
+offset_bottom = 14.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "ZAUBER"
